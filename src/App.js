@@ -1,10 +1,36 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState, useEffect} from 'react'
 import {Navbar, Container} from 'react-bootstrap';
 
 import HomeCard from './HomeCard';
 import ExperienceCard from './ExperienceCard';
 
 const App = () => {
+  const [pageState, setpageState] = useState('Home')
+
+  const pages = [
+    {
+      pageName: 'Home',
+      text: 'Home'
+    },
+    {
+      pageName: 'Experience',
+      text: 'Experience'
+    },
+    {
+      pageName: 'Practice',
+      text: 'Practice'
+    },
+    {
+      pageName: 'Resources',
+      text: 'Resources'
+    }
+  ]
+
+  useEffect(() => {
+    console.log(pageState)
+  }, [pageState]);
+
   return (
     <div className="App">
       <style type="text/css">
@@ -23,15 +49,19 @@ const App = () => {
       </style>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand>Home</Navbar.Brand>
-          <Navbar.Brand>Experience</Navbar.Brand>
-          <Navbar.Brand>Practice</Navbar.Brand>
-          <Navbar.Brand>Resources</Navbar.Brand>
+          {/* TODO: make it pointer on hover */}
+          <Navbar.Brand onClick = {() => setpageState('Home')}>Home</Navbar.Brand>
+          <Navbar.Brand onClick = {() => setpageState('Experience')}>Experience</Navbar.Brand>
+          <Navbar.Brand onClick = {() => setpageState('Practice')}>Practice</Navbar.Brand>
+          <Navbar.Brand onClick = {() => setpageState('Resources')}>Resources</Navbar.Brand>
         </Container>
       </Navbar>
 
-      <HomeCard />
-      <ExperienceCard />
+      { pageState == 'Home' && <HomeCard />}
+      { pageState == 'Experience' && <ExperienceCard />}
+      {/* { pageState == 'Practice' && <Practice />}
+      { pageState == 'Resources' && <Resources />} */}
+
     </div>
   );
 }
