@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Navbar, Container, Card} from 'react-bootstrap';
+import {Navbar, Container} from 'react-bootstrap';
 
-import HomeCard from './components/HomeCard';
-import ExperienceCard from './components/ExperienceCard';
+import HomeCard from './HomeCard';
+import ExperienceCard from './ExperienceCard';
 
 const App = () => {
   return (

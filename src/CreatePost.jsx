@@ -1,4 +1,5 @@
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Card} from 'react-bootstrap';
 
 const ExperienceCard = () => {
   return (
@@ -13,3 +14,5 @@ const ExperienceCard = () => {
     </Card>
   )
 }
+
+export default ExperienceCard;
