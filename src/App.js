@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Navbar, Container, Card} from 'react-bootstrap';
 import {useState, useEffect} from 'react'
-import React from 'react'
-// import HomeCard from './components/HomeCard';
-// import ExperienceCard from './components/ExperienceCard';
+import {Navbar, Container} from 'react-bootstrap';
+
+import HomeCard from './HomeCard';
+import ExperienceCard from './ExperienceCard';
 
 const App = () => {
   const [pageState, setpageState] = useState('Home')
@@ -49,6 +49,7 @@ const App = () => {
       </style>
       <Navbar bg="light" expand="lg">
         <Container>
+          {/* TODO: make it pointer on hover */}
           <Navbar.Brand onClick = {() => setpageState('Home')}>Home</Navbar.Brand>
           <Navbar.Brand onClick = {() => setpageState('Experience')}>Experience</Navbar.Brand>
           <Navbar.Brand onClick = {() => setpageState('Practice')}>Practice</Navbar.Brand>
@@ -56,11 +57,11 @@ const App = () => {
         </Container>
       </Navbar>
 
-      { pageState == 'Home' && <Home />}
-      { pageState == 'Experience' && <Experience />}
-      { pageState == 'Practice' && <Practice />}
-      { pageState == 'Resources' && <Resources />}
-      
+      { pageState == 'Home' && <HomeCard />}
+      { pageState == 'Experience' && <ExperienceCard />}
+      {/* { pageState == 'Practice' && <Practice />}
+      { pageState == 'Resources' && <Resources />} */}
+
     </div>
   );
 }
