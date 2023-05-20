@@ -1,15 +1,35 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card} from 'react-bootstrap';
+import {Card, Form, Button} from 'react-bootstrap';
+import { useState } from 'react';
 
 const ExperienceCard = () => {
+  const [content, setContent] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(content);
+    // サーバーにデータを送信する処理を書く
+    setContent('');
+  }
+
   return (
     <Card>
       <Card.Body>
-        <Card.Title style={{fontSize:'100px'}}>Card Experience</Card.Title>
-        <Card.Text style={{fontSize:'50px'}}>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="formContent">
+            <Form.Label>Your Experience</Form.Label>
+            <Form.Control
+              as="textarea"
+              placeholder="Enter card text"
+              value={content}
+              onChange={e => setContent(e.target.value)}
+            />
+          </Form.Group>
+
+          <Button variant="primary" type="submit">
+            Post
+          </Button>
+        </Form>
       </Card.Body>
     </Card>
   )
