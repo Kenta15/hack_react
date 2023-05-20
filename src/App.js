@@ -1,7 +1,34 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar, Container, Card} from 'react-bootstrap';
+import {useState, useEffect} from 'react'
+import React from 'react'
 
 function App() {
+  const [pageState, setpageState] = useState('Home')
+
+  const pages = [
+    {
+      pageName: 'Home',
+      text: 'Home'
+    },
+    {
+      pageName: 'Experience',
+      text: 'Experience'
+    },
+    {
+      pageName: 'Practice',
+      text: 'Practice'
+    },
+    {
+      pageName: 'Resources',
+      text: 'Resources'
+    }
+  ]
+
+  useEffect(() => {
+    console.log(pageState)
+  }, [pageState]);
+
   return (
     <div className="App">
       <style type="text/css">
@@ -20,22 +47,17 @@ function App() {
       </style>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand>Home</Navbar.Brand>
-          <Navbar.Brand>Experience</Navbar.Brand>
-          <Navbar.Brand>Practice</Navbar.Brand>
-          <Navbar.Brand>Resources</Navbar.Brand>
+          <Navbar.Brand onClick = {() => setpageState('Home')}>Home</Navbar.Brand>
+          <Navbar.Brand onClick = {() => setpageState('Experience')}>Experience</Navbar.Brand>
+          <Navbar.Brand onClick = {() => setpageState('Practice')}>Practice</Navbar.Brand>
+          <Navbar.Brand onClick = {() => setpageState('Resources')}>Resources</Navbar.Brand>
         </Container>
       </Navbar>
 
-      <Card card>
-        <Card.Body>
-          <Card.Title style={{fontSize:'100px'}}>Card Title</Card.Title>
-          <Card.Text style={{fontSize:'50px'}}>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      { pageState == 'Home' && <Home />}
+      { pageState == 'Experience' && <Experience />}
+      { pageState == 'Practice' && <Practice />}
+      { pageState == 'Resources' && <Resources />}
     </div>
   );
 }
