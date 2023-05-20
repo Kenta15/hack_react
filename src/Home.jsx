@@ -1,0 +1,15 @@
+
+
+const HomeCard = () => {
+  return (
+    <Card card>
+      <Card.Body>
+        <Card.Title style={{fontSize:'100px'}}>Card Title</Card.Title>
+        <Card.Text style={{fontSize:'50px'}}>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  )
+}
