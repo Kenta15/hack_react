@@ -28,7 +28,6 @@ const App = () => {
   ]
 
   useEffect(() => {
-    console.log(pageState)
   }, [pageState]);
 
   return (
