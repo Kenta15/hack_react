@@ -2,8 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar, Container, Card} from 'react-bootstrap';
 import {useState, useEffect} from 'react'
 import React from 'react'
+// import HomeCard from './components/HomeCard';
+// import ExperienceCard from './components/ExperienceCard';
 
-function App() {
+const App = () => {
   const [pageState, setpageState] = useState('Home')
 
   const pages = [
@@ -58,6 +60,7 @@ function App() {
       { pageState == 'Experience' && <Experience />}
       { pageState == 'Practice' && <Practice />}
       { pageState == 'Resources' && <Resources />}
+      
     </div>
   );
 }
