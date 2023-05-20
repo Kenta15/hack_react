@@ -1,7 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar, Container, Card} from 'react-bootstrap';
 
-function App() {
+import HomeCard from './components/HomeCard';
+import ExperienceCard from './components/ExperienceCard';
+
+const App = () => {
   return (
     <div className="App">
       <style type="text/css">
@@ -27,15 +30,8 @@ function App() {
         </Container>
       </Navbar>
 
-      <Card card>
-        <Card.Body>
-          <Card.Title style={{fontSize:'100px'}}>Card Title</Card.Title>
-          <Card.Text style={{fontSize:'50px'}}>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <HomeCard />
+      <ExperienceCard />
     </div>
   );
 }
