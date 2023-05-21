@@ -7,7 +7,7 @@ import ExperienceCard from './ExperienceCard';
 import ExperienceCreateCard from './ExperienceCreateCard';
 
 const App = () => {
-  const [pageState, setpageState] = useState('Home')
+  const [pageState, setPageState] = useState('Home')
 
   const pages = [
     {
@@ -31,6 +31,10 @@ const App = () => {
   useEffect(() => {
   }, [pageState]);
 
+  const changePage = (newPage) => {
+    setPageState(newPage)
+  }
+
   return (
     <div className="App">
       <style type="text/css">
@@ -50,16 +54,16 @@ const App = () => {
       <Navbar bg="light" expand="lg">
         <Container>
           {/* TODO: make it pointer on hover */}
-          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Home')}>Home</Navbar.Brand>
-          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Experience')}>Experience</Navbar.Brand>
-          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Practice')}>Practice</Navbar.Brand>
-          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Resources')}>Resources</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Home')}>Home</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Experience')}>Experience</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Practice')}>Practice</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Resources')}>Resources</Navbar.Brand>
         </Container>
       </Navbar>
 
       { pageState == 'Home' && <HomeCard />}
-      { pageState == 'Experience' && <ExperienceCard />}
-      { pageState == 'Experience' && <ExperienceCreateCard />}
+      { pageState == 'Experience' && <ExperienceCard changePage={changePage} />}
+      { pageState == 'NewPost' && <ExperienceCreateCard />}
       {/* { pageState == 'Practice' && <Practice />}
       { pageState == 'Resources' && <Resources />} */}
 

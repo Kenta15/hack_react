@@ -54,32 +54,6 @@ const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
 
   return (
     <div>
-      <style type="text/css">
-          {`
-            .card{
-              width:50vw;
-              height:fit-content;
-              border-bottom-left-radius:0;
-              border-bottom-right-radius:0;
-            }
-            .comment{
-              border:1px solid #DCDCDC;
-              width:50vw;
-              height:50px;
-              margin:auto;
-              border-bottom-left-radius:3px;
-              border-bottom-right-radius:3px;
-            }
-            .icons{
-              display:flex;
-              align-items:left;
-            }
-            .view, .chat{
-              display:inline-block;
-              margin-right:8px;
-            }
-          `}
-        </style>
       <Card>
         <Card.Body style={{width:'100%'}}>
           <Card.Text style={{fontSize:'18px'}}>
