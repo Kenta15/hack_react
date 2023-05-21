@@ -36,7 +36,7 @@ const App = () => {
       <Navbar bg="light" expand="lg">
         <Container>
           {/* TODO: make it pointer on hover */}
-          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Home')}>Home</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Home')}>感情Compass</Navbar.Brand>
           <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Experience')}>Experience</Navbar.Brand>
           <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Think')}>Think</Navbar.Brand>
         </Container>
@@ -46,6 +46,15 @@ const App = () => {
       { pageState == 'Experience' && <ExperienceCard changePage={changePage} />}
       { pageState == 'NewPost' && <ExperienceCreateCard />}
       { pageState == 'Think' && <Think />}
+
+      <df-messenger
+        df-cx="true"
+        location="us-west1"
+        chat-title="Empath"
+        agent-id="a8e6d324-67df-40c5-919a-970dfccf6128"
+        language-code="en"
+      ></df-messenger>
+
 
     </div>
   );
