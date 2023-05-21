@@ -67,7 +67,7 @@ const HomeCard = () => {
             <div class="kanji second">移入</div>
         </div>
         <div className="right">
-            <div className="explanation">The ethereal art of connection and emotional immersion. It is a concept deeply rooted in Japanese culture, its essence resonating with the universal human experience</div>
+            <div className="explanation">Kanjou iyou-- The ethereal art of connection and emotional immersion. It is a concept deeply rooted in Japanese culture, its essence resonating with the universal human experience</div>
         </div>
     </div>
   )
