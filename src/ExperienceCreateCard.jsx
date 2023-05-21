@@ -24,9 +24,12 @@ const ExperienceCreateCard = () => {
     }
 
   const cardStyle = {
-    margin: "20px auto",
-    padding: "20px",
-    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+    'width': '50vw',
+    'height':'fit-content',
+    'border-bottom-left-radius':'5px',
+   ' border-bottom-right-radius':'5px',
+    'border-bottom-left-radius':0,
+    'border-bottom-right-radius':0,
   };
 
   const bodyStyle = {
@@ -56,7 +59,7 @@ const ExperienceCreateCard = () => {
       <Card.Body style={bodyStyle}>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formContent">
-            <Form.Label style={labelStyle}>Write Your Experience</Form.Label>
+            <Form.Label style={labelStyle}>Tell us about Your Experience</Form.Label>
             <Form.Control
               style={controlStyle}
               as="textarea"

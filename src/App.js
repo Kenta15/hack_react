@@ -38,7 +38,7 @@ const App = () => {
           {/* TODO: make it pointer on hover */}
           <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Home')}>Home</Navbar.Brand>
           <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Experience')}>Experience</Navbar.Brand>
-          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Think')}>Think</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Think')}>Think</Navbar.Brand>
         </Container>
       </Navbar>
 
