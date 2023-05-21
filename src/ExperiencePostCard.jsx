@@ -16,16 +16,23 @@ const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
   }
 
   const [numComment, setNumComment] = useState(comment_num);
+  const [isOpen, setIsOpen] = useState(false);
   const [comments, setComments] = useState([]);
 
   const expandComment = () => {
-    axios.get(`http://localhost:8000/api/comment?post_id=${post_id}`).then(
-      res => {
-        setComments(res.data);
-      }
-    ).catch(
-      err => {}
-    )
+    if (!isOpen){
+      axios.get(`http://localhost:8000/api/comment?post_id=${post_id}`).then(
+        res => {
+          setComments(res.data);
+          setIsOpen(true);
+        }
+      ).catch(
+        err => {}
+      )
+    }else{
+      setComments([]);
+      setIsOpen(false);
+    }
   }
 
   const handleSubmit = useCbOnce((e) => {
@@ -34,21 +41,24 @@ const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
     if (comment === '') {
       return;
     }
+
     axios.post('http://localhost:8000/api/comment/', {
       content: comment,
       post_id: post_id,
-      }).then(
-        res => {
-          setComments(prev => [res.data, ...prev]);
-          setNumComment(prev => prev +1);
-          // remove value
-          e.target[0].value = '';
-        }
+    }).then(
+      res => {
+        setComments(prev => [res.data, ...prev]);
+        setNumComment(prev => prev +1);
+        // remove value
+        e.target[0].value = '';
+        setIsOpen(true);
+      }
       ).catch(
         err => {
           console.log(err);
         }
       )
+
   });
 
 

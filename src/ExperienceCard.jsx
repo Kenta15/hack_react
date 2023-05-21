@@ -24,11 +24,6 @@ const ExperienceCard = ({changePage}) => {
     console.log(numComment)
   }, [numComment]);
 
-  const expandComment = () => {
-    if(numComment > 0){
-      console.log('expanded')
-    }
-  }
   return (
     <>
     <style type="text/css">
