@@ -44,17 +44,8 @@ const App = () => {
 
       { pageState == 'Home' && <HomeCard />}
       { pageState == 'Experience' && <ExperienceCard changePage={changePage} />}
-      { pageState == 'NewPost' && <ExperienceCreateCard changePage={changePage}  />}
+      { pageState == 'NewPost' && <ExperienceCreateCard />}
       { pageState == 'Think' && <Think />}
-
-
-      <df-messenger
-      df-cx="true"
-      location="us-west1"
-      chat-title="Empath"
-      agent-id="a8e6d324-67df-40c5-919a-970dfccf6128"
-      language-code="en"
-    ></df-messenger>
 
     </div>
   );
