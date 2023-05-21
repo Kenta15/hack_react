@@ -50,10 +50,10 @@ const App = () => {
       <Navbar bg="light" expand="lg">
         <Container>
           {/* TODO: make it pointer on hover */}
-          <Navbar.Brand onClick = {() => setpageState('Home')}>Home</Navbar.Brand>
-          <Navbar.Brand onClick = {() => setpageState('Experience')}>Experience</Navbar.Brand>
-          <Navbar.Brand onClick = {() => setpageState('Practice')}>Practice</Navbar.Brand>
-          <Navbar.Brand onClick = {() => setpageState('Resources')}>Resources</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Home')}>Home</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Experience')}>Experience</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Practice')}>Practice</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Resources')}>Resources</Navbar.Brand>
         </Container>
       </Navbar>
 
