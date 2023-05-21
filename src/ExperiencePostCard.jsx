@@ -3,29 +3,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Form, Button} from 'react-bootstrap';
 import { Chat, Eye } from 'react-bootstrap-icons';
 import axios from 'axios';
+import ExperienceCommentCard from './ExperienceCommentCard';
 
 
 const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
 
   const useCbOnce = (cb) => {
-    const [called, setCalled] = useState(false);
-
     // Below can be wrapped in useCallback whenever re-renders becomes a problem
     return (e) => {
-        if (!called) {
-            setCalled(true);
-            cb(e);
-        }
+      cb(e);
     }
   }
 
   const [numComment, setNumComment] = useState(comment_num);
-
+  const [comments, setComments] = useState([]);
 
   const expandComment = () => {
-    if(numComment > 0){
-      console.log('expanded')
-    }
+    axios.get(`http://localhost:8000/api/comment?post_id=${post_id}`).then(
+      res => {
+        setComments(res.data);
+      }
+    ).catch(
+      err => {}
+    )
   }
 
   const handleSubmit = useCbOnce((e) => {
@@ -39,7 +39,7 @@ const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
       post_id: post_id,
       }).then(
         res => {
-          console.log(res);
+          setComments(prev => [res.data, ...prev]);
           setNumComment(prev => prev +1);
           // remove value
           e.target[0].value = '';
@@ -90,9 +90,9 @@ const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
               <Eye style={{width:'20px', height:'20px', marginRight:'5px'}}/>
               <span>{view_count}</span>
             </div>
-            <div className="chat">
-              <Chat style={{width:'20px', height:'20px', marginRight:'5px'}} onClick = {() => expandComment()}/>
-              <span>{numComment}</span>
+            <div className="chat" onClick={expandComment}>
+              <Chat style={{width:'20px', height:'20px', marginRight:'5px'}} />
+              {/* <span>{numComment}</span> */}
             </div>
           </div>
         </Card.Body>
@@ -108,7 +108,10 @@ const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
         </Form>
       </div>
       <div className='commentView'>
-
+        {comments.map((comment, index) => {
+          return <ExperienceCommentCard key={index} content={comment.content} />
+        })
+        }
       </div>
     </div>
   );
