@@ -64,7 +64,7 @@ const ExperienceCard = ({changePage}) => {
     {
       posts.map((post, index) => {
         return (
-          <ExperiencePostCard key={index} post_id={post.id} content={post.content} view_count={1000} comment_num={0}/>
+          <ExperiencePostCard key={index} post_id={post.id} content={post.content} view_count={1000} comment_num={post.comment_count}/>
           )
         }
       )
