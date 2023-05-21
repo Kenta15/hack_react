@@ -4,14 +4,18 @@ import {Navbar, Container} from 'react-bootstrap';
 
 import HomeCard from './HomeCard';
 import ExperienceCard from './ExperienceCard';
+import ExperienceCreateCard from './ExperienceCreateCard';
 import Think from './Think';
 
 const App = () => {
-  const [pageState, setpageState] = useState('Home')
+  const [pageState, setPageState] = useState('Home')
 
   useEffect(() => {
-    console.log(pageState)
   }, [pageState]);
+
+  const changePage = (newPage) => {
+    setPageState(newPage)
+  }
 
   return (
     <div className="App">
@@ -32,14 +36,15 @@ const App = () => {
       <Navbar bg="light" expand="lg">
         <Container>
           {/* TODO: make it pointer on hover */}
-          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Home')}>Home</Navbar.Brand>
-          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Experience')}>Experience</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Home')}>Home</Navbar.Brand>
+          <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setPageState('Experience')}>Experience</Navbar.Brand>
           <Navbar.Brand style={{cursor:'pointer'}} onClick = {() => setpageState('Think')}>Think</Navbar.Brand>
         </Container>
       </Navbar>
 
       { pageState == 'Home' && <HomeCard />}
-      { pageState == 'Experience' && <ExperienceCard />}
+      { pageState == 'Experience' && <ExperienceCard changePage={changePage} />}
+      { pageState == 'NewPost' && <ExperienceCreateCard />}
       { pageState == 'Think' && <Think />}
 
     </div>
