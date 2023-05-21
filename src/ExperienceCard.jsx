@@ -24,7 +24,7 @@ const ExperienceCard = () => {
         <Card.Text style={{fontSize:'50px'}}>
           {
             posts.map((post, index) => {
-              return <p>{post.content}</p>
+              return <p key={index}>{post.content}</p>
             })
           }
         </Card.Text>

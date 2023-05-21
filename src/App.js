@@ -4,6 +4,7 @@ import {Navbar, Container} from 'react-bootstrap';
 
 import HomeCard from './HomeCard';
 import ExperienceCard from './ExperienceCard';
+import ExperienceCreateCard from './ExperienceCreateCard';
 
 const App = () => {
   const [pageState, setpageState] = useState('Home')
@@ -58,6 +59,7 @@ const App = () => {
 
       { pageState == 'Home' && <HomeCard />}
       { pageState == 'Experience' && <ExperienceCard />}
+      { pageState == 'Experience' && <ExperienceCreateCard />}
       {/* { pageState == 'Practice' && <Practice />}
       { pageState == 'Resources' && <Resources />} */}
 
