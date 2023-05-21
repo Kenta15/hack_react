@@ -44,7 +44,7 @@ const App = () => {
 
       { pageState == 'Home' && <HomeCard />}
       { pageState == 'Experience' && <ExperienceCard changePage={changePage} />}
-      { pageState == 'NewPost' && <ExperienceCreateCard />}
+      { pageState == 'NewPost' && <ExperienceCreateCard changePage={changePage}  />}
       { pageState == 'Think' && <Think />}
 
 

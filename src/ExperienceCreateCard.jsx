@@ -3,7 +3,7 @@ import {Card, Form, Button} from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
 
-const ExperienceCreateCard = () => {
+const ExperienceCreateCard = ({changePage}) => {
 
   const [content, setContent] = useState('');
 
@@ -15,6 +15,7 @@ const ExperienceCreateCard = () => {
     }).then(
       res => {
         console.log(res);
+        changePage('Experience');
       }
     ).catch(
       err => {

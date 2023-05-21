@@ -24,11 +24,6 @@ const ExperienceCard = ({changePage}) => {
     console.log(numComment)
   }, [numComment]);
 
-  const expandComment = () => {
-    if(numComment > 0){
-      console.log('expanded')
-    }
-  }
   return (
     <>
     <style type="text/css">
@@ -65,7 +60,7 @@ const ExperienceCard = ({changePage}) => {
         }
       `}
       </style>
-      <Button className='new_post' onClick={() => changePage('NewPost')}>New Post</Button>
+      <Button className='new_post' variant="dark" onClick={() => changePage('NewPost')}>New Post</Button>
     {
       posts.map((post, index) => {
         return (
