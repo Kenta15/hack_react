@@ -23,22 +23,51 @@ const ExperienceCreateCard = () => {
     )
     }
 
+  const cardStyle = {
+    margin: "20px auto",
+    padding: "20px",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+  };
+
+  const bodyStyle = {
+    width: "90%",
+  };
+
+  const labelStyle = {
+    fontSize: "2rem",
+    fontWeight: "bold",
+  };
+
+  const controlStyle = {
+    fontSize: "1.5rem",
+    marginTop: "10px",
+    minHeight: "150px",
+    width: "100%",
+  };
+
+  const buttonStyle = {
+    fontSize: "1.5rem",
+    width: "100%",
+    marginTop: "20px",
+  };
+
   return (
-    <Card>
-      <Card.Body>
+    <Card style={cardStyle}>
+      <Card.Body style={bodyStyle}>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formContent">
-            <Form.Label>Your Experience</Form.Label>
+            <Form.Label style={labelStyle}>Write Your Experience</Form.Label>
             <Form.Control
+              style={controlStyle}
               as="textarea"
-              placeholder="Enter card text"
+              placeholder="Enter your experience here"
               value={content}
               onChange={e => setContent(e.target.value)}
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Post
+          <Button style={buttonStyle} variant="dark" type="submit">
+            <strong>Post</strong>
           </Button>
         </Form>
       </Card.Body>
