@@ -3,7 +3,7 @@ import {Card} from 'react-bootstrap';
 
 const HomeCard = () => {
   return (
-    <Card card>
+    <Card>
       <Card.Body>
         <Card.Title style={{fontSize:'100px'}}>Card Title</Card.Title>
         <Card.Text style={{fontSize:'50px'}}>
