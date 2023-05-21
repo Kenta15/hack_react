@@ -86,7 +86,7 @@ const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{width:'80%', display:'inline-block', marginRight:'10px'}}>
             <Form.Control type="text" placeholder="Comment" style={{borderRadius:'50px'}}/>
           </Form.Group>
-          <Button variant="primary" type="submit" style={{width: '15%', borderRadius:'50px'}}>
+          <Button variant="dark" type="submit" style={{width: '15%', borderRadius:'50px'}}>
             Submit
           </Button>
         </Form>

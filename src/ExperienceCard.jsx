@@ -60,7 +60,7 @@ const ExperienceCard = ({changePage}) => {
         }
       `}
       </style>
-      <Button className='new_post' onClick={() => changePage('NewPost')}>New Post</Button>
+      <Button className='new_post' variant="dark" onClick={() => changePage('NewPost')}>New Post</Button>
     {
       posts.map((post, index) => {
         return (
