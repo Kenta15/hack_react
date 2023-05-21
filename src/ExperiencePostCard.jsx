@@ -76,7 +76,7 @@ const ExperiencePostCard = ({post_id, content, view_count, comment_num}) => {
             </div>
             <div className="chat" onClick={expandComment}>
               <Chat style={{width:'20px', height:'20px', marginRight:'5px'}} />
-              {/* <span>{numComment}</span> */}
+              <span>{numComment}</span>
             </div>
           </div>
         </Card.Body>
